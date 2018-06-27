@@ -32,8 +32,10 @@ RUN cd /var/www/html \
 RUN cp /usr/src/php/php.ini-production /usr/local/etc/php/conf.d/php.ini
 
 ADD nginx.conf /var/www/html/nginx/
+ADD start.sh /var/www/html/nginx/start.sh
+RUN chmod +x /var/www/html/nginx/start.sh
 
 EXPOSE 80
 EXPOSE 9000
 
-CMD ["php-fpm","-c","/usr/local/etc/php/conf.d/php.ini","-y","/usr/local/etc/php-fpm.conf","-D","&&","nginx","-c","/var/www/html/nginx/nginx.conf"]
+CMD ["/var/www/html/nginx/start.sh"]
