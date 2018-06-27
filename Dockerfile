@@ -31,6 +31,7 @@ RUN cd /var/www/html \
 
 ADD nginx.conf /etc/nginx/
 
-EXPOSE 80,9000
+EXPOSE 80
+EXPOSE 9000
 
 CMD ["nginx","-c","/etc/nginx/nginx.conf"]
