@@ -2,12 +2,19 @@ FROM codemix/yii2-base:2.0-php7-fpm
 
 #RUN apt-get update \
 #    && 
-#   libfreetype6-dev \
-#            libjpeg62-turbo-dev \
-#            libmcrypt-dev \
-#            libpng12-dev \
+#   
+RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak && \
+echo "deb http://mirrors.163.com/debian/ jessie main non-free contrib" >/etc/apt/sources.list && \
+echo "deb http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib" >>/etc/apt/sources.list && \
+echo "deb-src http://mirrors.163.com/debian/ jessie main non-free contrib" >>/etc/apt/sources.list && \
+echo "deb-src http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib" >>/etc/apt/sources.list
+
 RUN apt-get update \
 	&& apt-get -y install \
+			libfreetype6-dev \
+            libjpeg62-turbo-dev \
+            libmcrypt-dev \
+            libpng12-dev \
 			git \
 			nginx \
         --no-install-recommends \
