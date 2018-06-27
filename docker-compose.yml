@@ -1,0 +1,14 @@
+version: "0.0.1"
+
+app:
+    build: ./
+    expose:
+        - "9000"
+nginx:
+    build: ./nginx
+    ports:
+        - "8080:80"
+    links:
+        - app
+    volumes_from:
+        - app
