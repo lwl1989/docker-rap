@@ -1,7 +1,8 @@
 FROM codemix/yii2-base:2.0-php7-fpm
 
-RUN apt-get update \
-    && apt-get -y install \
+#RUN apt-get update \
+#    && 
+RUN	apt-get -y install \
             libfreetype6-dev \
             libjpeg62-turbo-dev \
             libmcrypt-dev \
@@ -13,7 +14,7 @@ RUN apt-get update \
     && docker-php-ext-install iconv mcrypt \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install gd \
-	&& /var/www/html \
+	&& cd /var/www/html \
 	&& git clone https://gitee.com/gouguoyin/phprap.git /var/www/html -b "develop" \
 	&& composer install 
 	
