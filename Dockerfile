@@ -30,9 +30,9 @@ RUN cd /var/www/html \
 		&& mkdir -p nginx \
         && chown www-data:www-data -R /var/www/html \
 		
-ADD nginx.conf /etc/nginx/
+ADD nginx.conf /var/www/html/nginx/
 
 EXPOSE 80
 EXPOSE 9000
 
-CMD ["nginx","-c","/etc/nginx/nginx.conf"]
+CMD ["nginx","-c","/var/www/html/nginx/nginx.conf"]
