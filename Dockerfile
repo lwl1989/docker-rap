@@ -23,7 +23,7 @@ RUN apt-get update \
 	
 #下载源码并修改目录
 RUN cd /var/www/html \
-        && git clone https://github.com/gouguoyin/phprap.git  -b "develop" \
+        && git clone https://github.com/gouguoyin/phprap.git -b "develop" \
         && mv phprap/* ./ \
         && rm phprap -rf \
         && composer install \
