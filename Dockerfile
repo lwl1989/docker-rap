@@ -2,11 +2,12 @@ FROM codemix/yii2-base:2.0-php7-fpm
 
 #RUN apt-get update \
 #    && 
-RUN	apt-get -y install \
-            libfreetype6-dev \
-            libjpeg62-turbo-dev \
-            libmcrypt-dev \
-            libpng12-dev \
+#   libfreetype6-dev \
+#            libjpeg62-turbo-dev \
+#            libmcrypt-dev \
+#            libpng12-dev \
+RUN apt-get update \
+	&& apt-get -y install \
 			git \
 			nginx \
         --no-install-recommends \
