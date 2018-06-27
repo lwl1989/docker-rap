@@ -28,7 +28,7 @@ RUN cd /var/www/html \
         && rm phprap -rf \
         && composer install \
 		&& mkdir -p nginx \
-        && chown www-data:www-data -R /var/www/html \
+        && chown www-data:www-data -R /var/www/html 
 		
 ADD nginx.conf /var/www/html/nginx/
 
