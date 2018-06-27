@@ -27,8 +27,9 @@ RUN cd /var/www/html \
         && mv phprap/* ./ \
         && rm phprap -rf \
         && composer install \
-        && chown www-data:www-data -R /var/www/html
-
+		&& mkdir -p nginx \
+        && chown www-data:www-data -R /var/www/html \
+		
 ADD nginx.conf /etc/nginx/
 
 EXPOSE 80
