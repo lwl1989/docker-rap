@@ -14,7 +14,7 @@ RUN apt-get update \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install gd \
 	&& cd /var/www/html \
-	&& git clone https://gitee.com/gouguoyin/phprap.git ./ -b "develop" \
+	&& git clone https://gitee.com/gouguoyin/phprap.git /var/www/html -b "develop" \
 	&& composer install \
 	
 ADD nginx.conf /etc/nginx/
